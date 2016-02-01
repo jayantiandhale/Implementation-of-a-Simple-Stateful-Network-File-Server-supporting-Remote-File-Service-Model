@@ -1,0 +1,45 @@
+CS 570 - Assignment 4, Due by Date: 12/08/2014
+Assignment solution by-
+Student Id: 12022254
+Name: Jayanti Andhale
+-----------------------------------------------------------------------------------------------------------------------------------------==================
+SUMMARY:
+
+Implemented a Simple Stateful Network File Server (SSNFS) that supports remote file service model.
+The client accepts the following commands: open, list, delete, write, read, close.
+1. open:  Requires a filename.  Opens a file with given name if present or Create a file with given name. Returns the file descriptor for a file.
+2. list:  Lists all files owned by user.
+3. delete: Requires a file descriptor.  Deletes file with given descriptor.
+4. write: Requires a file descriptor, write length, and data.  Writes write length bytes of data to the file with given descriptor.
+5. read: Requires a file descriptor, and read length.  Reads read length bytes from file with given descriptor. Returns the content read.
+6. close: Removes file table entry for given file descriptor. Closes a file with given file descriptor.
+
+-----------------------------------------------------------------------------------------------------------------------------------------==================
+Build Instructions:
+
+1. To build the programs, simply run "make".  Running rpcgen is not necessary, as it is run by the Makefile.
+2. To delete all programs, build files, and virtual disk files, simply run "make clean".
+
+3. To run the server program, simply run "./server".
+4. To run the client program, simply run "./client hostname", where hostname is the name of the host running the server, e.g., "./client localhost" if the server is running on the same host.
+
+-----------------------------------------------------------------------------------------------------------------------------------------==================
+NOTES:
+
+1. File server uses a UNIX file as a virtual disk to store the files created by the clients. Server and client are implemented as Sun
+2. RPC server and client. A virtual disk is a sequence of 512 bytes blocks. 
+3. The virtual disk capacity is 10MB.
+4. Maximum file table entries are assumed to be 100; considering maximum expected users and maximum files per user.
+----------------------------------------------------------------------------------------------------------------------------------------==================
+CONTENTS:
+1. ssnfs.x
+2. client.c
+3. server.c
+4. makefile
+5. README
+
+the make command will generate ssnfs.h, ssnfs_clnt.c, ssnfs_svc.c, ssnfs_xdr.c files and other required files.
+-----------------------------------------------------------------------------------------------------------------------------------------==================
+
+
+
